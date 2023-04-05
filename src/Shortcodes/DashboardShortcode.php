@@ -17,6 +17,7 @@ class DashboardShortcode extends Base
     public function init(): void
     {
         add_shortcode('vlp-dashboard', [$this, 'handle']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
     }
 
     /**  
@@ -27,5 +28,14 @@ class DashboardShortcode extends Base
     public function handle(): string
     {
         return $this->renderView('DashboardView', ['isLoggedIn' => is_user_logged_in()]);
+    }
+
+    /**  
+     * Enqueue styles and scripts
+     */
+    public function enqueueAssets()
+    {
+        wp_enqueue_script('vlp-app-script', $this->scriptsDirURL . 'app.build.js', [], false, true);
+        // wp_enqueue_style('vlp-app-script', $this->stylesDirURL . 'main.build.css');
     }
 }

@@ -42,6 +42,7 @@ abstract class Base
         $this->stylesDirURL = $this->pluginURL . 'assets/css/';
     }
 
+
     /* Class initializer 
      * 
      * @return void 

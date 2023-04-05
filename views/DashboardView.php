@@ -6,6 +6,6 @@
  */
 
 ?>
-<div class="dashboard">
+<div id="root" class="dashboard">
     Dashboard
 </div>
