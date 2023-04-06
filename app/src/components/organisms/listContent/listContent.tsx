@@ -7,12 +7,7 @@ type Props = {
 
 const ListContent = (props: Props) => {
   const { children } = props;
-  return (
-    <StyledListContent>
-      <h2>List content</h2>
-      {children}
-    </StyledListContent>
-  );
+  return <StyledListContent>{children}</StyledListContent>;
 };
 
 ListContent.defaultProps = {

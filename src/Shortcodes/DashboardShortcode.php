@@ -36,6 +36,6 @@ class DashboardShortcode extends Base
     public function enqueueAssets()
     {
         wp_enqueue_script('vlp-app-script', $this->scriptsDirURL . 'app.build.js', [], false, true);
-        // wp_enqueue_style('vlp-app-script', $this->stylesDirURL . 'main.build.css');
+        wp_enqueue_style('vlp-app-script', $this->stylesDirURL . 'main.build.css');
     }
 }

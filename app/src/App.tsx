@@ -1,18 +1,11 @@
-import List from "./components/templates/list/list";
+import "./constants.css";
 
-import styled from "styled-components";
+import { App as StyledApp } from "./App.styled";
 
-export const StyledApp = styled.div`
-  width: 100%;
-  background-color: #b6b6b675;
-`;
+import Home from "./components/pages/home/home";
 
 function App() {
-  return (
-    <StyledApp>
-      <List />
-    </StyledApp>
-  );
+  return <StyledApp>{<Home />}</StyledApp>;
 }
 
 export default App;
