@@ -2,10 +2,14 @@ import "./constants.css";
 
 import { App as StyledApp } from "./App.styled";
 
-import Home from "./components/pages/home/home";
+import Home from "./pages/home/home";
 
 function App() {
-  return <StyledApp>{<Home />}</StyledApp>;
+  return (
+    <StyledApp>
+      <Home />
+    </StyledApp>
+  );
 }
 
 export default App;

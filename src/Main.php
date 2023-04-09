@@ -15,6 +15,8 @@ class Main
     function __construct()
     {
         $this->classes = [
+            Hooks\Ajax\ProductAjaxHook::class,
+            Hooks\ProductPostTypeHook::class,
             Shortcodes\DashboardShortcode::class
         ];
     }
