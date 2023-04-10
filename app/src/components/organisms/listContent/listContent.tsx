@@ -1,17 +1,26 @@
 import React from "react";
 import { ListContent as StyledListContent } from "./listContent.styled";
+import Card from "../../molecules/card/card";
+
+import Product from "../../../types/Product";
 
 type Props = {
-  children: string | JSX.Element | JSX.Element[];
+  products: Product[];
 };
 
 const ListContent = (props: Props) => {
-  const { children } = props;
-  return <StyledListContent>{children}</StyledListContent>;
+  const { products } = props;
+  return (
+    <StyledListContent>
+      {products.map((product) => (
+        <Card product={product} />
+      ))}
+    </StyledListContent>
+  );
 };
 
 ListContent.defaultProps = {
-  children: "",
+  products: [],
 };
 
 export default ListContent;

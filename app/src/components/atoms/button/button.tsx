@@ -4,6 +4,7 @@ import { Button as StyledButton } from "./button.styled";
 const ButtonType = {
   BUTTON: "button",
   SUBMIT: "submit",
+  RESET: "reset",
 };
 
 type Props = {

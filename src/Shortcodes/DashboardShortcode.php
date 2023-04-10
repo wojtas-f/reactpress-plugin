@@ -37,5 +37,7 @@ class DashboardShortcode extends Base
     {
         wp_enqueue_script('vlp-app-script', $this->scriptsDirURL . 'app.build.js', [], false, true);
         wp_enqueue_style('vlp-app-script', $this->stylesDirURL . 'main.build.css');
+
+        wp_add_inline_script('vlp-app-script', 'const vlpAjaxUrl =' . json_encode(admin_url('admin-ajax.php')) . ';', 'before');
     }
 }
