@@ -1,6 +1,6 @@
 import React from "react";
 import { ListContent as StyledListContent } from "./listContent.styled";
-import Title from "../../atoms/title/title";
+import Card from "../../molecules/card/card";
 
 import Product from "../../../types/Product";
 
@@ -13,7 +13,7 @@ const ListContent = (props: Props) => {
   return (
     <StyledListContent>
       {products.map((product) => (
-        <Title>{product.post_title} </Title>
+        <Card product={product} />
       ))}
     </StyledListContent>
   );

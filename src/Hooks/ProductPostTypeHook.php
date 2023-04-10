@@ -43,7 +43,7 @@ class ProductPostTypeHook extends Base
                 'has_archive'        => true,
                 'hierarchical'       => false,
                 'menu_icon'          => 'dashicons-products',
-                'supports'           => ['title', 'author', 'custom-fields'],
+                'supports'           => ['title'],
                 'menu_position' => 21,
             ]
         );

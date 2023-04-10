@@ -2,8 +2,7 @@ import React from "react";
 import { Title as StyledTitle } from "./title.styled";
 
 type Props = {
-  // children: string;
-  children: any;
+  children: string;
 };
 
 const Title = (props: Props) => {

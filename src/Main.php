@@ -17,6 +17,7 @@ class Main
         $this->classes = [
             Hooks\Ajax\ProductAjaxHook::class,
             Hooks\ProductPostTypeHook::class,
+            Hooks\ProductMetaBoxesHook::class,
             Shortcodes\DashboardShortcode::class
         ];
     }
