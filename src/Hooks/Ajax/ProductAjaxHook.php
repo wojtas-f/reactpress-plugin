@@ -15,6 +15,17 @@ class ProductAjaxHook
     }
 
     /**  
+     * 
+     */
+    public function getThumbnail($productMeta)
+    {
+        $thumbnailId = isset($productMeta['_thumbnail_id']) ? $productMeta['_thumbnail_id'][0] : '';
+        $thumbnail = wp_get_attachment_image_src($thumbnailId, 'thumbnail');
+        if ($thumbnail) return $thumbnail[0];
+        return false;
+    }
+
+    /**  
      * Handle ajax call
      */
     public function handleAjax()
@@ -25,6 +36,15 @@ class ProductAjaxHook
         ];
         $products = get_posts($args);
 
-        wp_send_json_success($products);
+        $res = [];
+        foreach ($products as $product) {
+            $productMeta = get_post_meta($product->ID);
+            $productObject = [];
+            $productObject['thumbnail'] = $this->getThumbnail($productMeta);
+            $productObject['title'] = $product->post_title;
+            $res[] = $productObject;
+        }
+
+        wp_send_json_success($res);
     }
 }

@@ -1,5 +1,6 @@
 type Product = {
-  post_title: string | "";
+  title: string | "";
+  thumbnail: string | "";
 };
 
 export default Product;

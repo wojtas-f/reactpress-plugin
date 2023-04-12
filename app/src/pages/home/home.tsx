@@ -10,6 +10,7 @@ const Home = () => {
 
   const getData = async () => {
     const res = await api.getProducts();
+    console.log("res", res);
     if (res) setProducts(res);
     else setProducts([]);
   };
