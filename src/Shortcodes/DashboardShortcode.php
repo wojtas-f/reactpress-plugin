@@ -16,7 +16,7 @@ class DashboardShortcode extends Base
      */
     public function init(): void
     {
-        add_shortcode('vlp-dashboard', [$this, 'handle']);
+        add_shortcode('vlp-products', [$this, 'handle']);
         add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
     }
 
