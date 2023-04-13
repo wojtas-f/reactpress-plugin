@@ -42,6 +42,11 @@ class ProductAjaxHook
             $productObject = [];
             $productObject['thumbnail'] = $this->getThumbnail($productMeta);
             $productObject['title'] = $product->post_title;
+
+            $taxonomies = get_post_taxonomies($product->ID);
+            $productObject['tags'] = wp_get_post_terms($product->ID, $taxonomies,  array("fields" => "names"));
+
+            $productObject['META'] = $productMeta;
             $res[] = $productObject;
         }
 
