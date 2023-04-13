@@ -18,6 +18,7 @@ class Main
             Hooks\Ajax\ProductAjaxHook::class,
             Hooks\ProductPostTypeHook::class,
             Hooks\ProductMetaBoxesHook::class,
+            Hooks\ProductTaxonomyHook::class,
             Shortcodes\DashboardShortcode::class
         ];
     }

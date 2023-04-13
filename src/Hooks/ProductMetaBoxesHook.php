@@ -20,7 +20,7 @@ class ProductMetaBoxesHook extends Base
     public $metaboxes = [];
 
     /**  
-     * 
+     * Class initializer
      */
     public function init()
     {

@@ -10,10 +10,13 @@ use Dashboard\Base\Base;
 class ProductPostTypeHook extends Base
 {
     /**  
-     * 
+     * Unique post type slug
      */
     public $slug = 'vlp_product';
 
+    /**  
+     * Class initializer
+     */
     public function init()
     {
         add_action('init', [$this, 'handle']);
