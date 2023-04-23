@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../../components/templates/sidebar/sidebar";
-import List from "../../components/templates/list/list";
+import Filters from "../../components/organisms/filters/filters";
+import List from "../../components/organisms/list/list";
 
 import { Home as StyledHome } from "./home.styled";
 import api from "../../services/config";
@@ -16,6 +16,7 @@ const Home = () => {
 
     if (res.products) setProducts(res.products);
     if (res.tags) setTags(res.tags);
+    console.log(tags);
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Home = () => {
   return (
     <StyledHome>
       <List products={filter(filters, products)} />
-      <Sidebar />
+      <Filters />
     </StyledHome>
   );
 };

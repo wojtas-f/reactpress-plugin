@@ -1,5 +1,5 @@
 import React from "react";
-import { ListContent as StyledListContent } from "./listContent.styled";
+import { List as StyledList } from "./list.styled";
 import Card from "../../molecules/card/card";
 
 import Product from "../../../types/Product";
@@ -8,19 +8,19 @@ type Props = {
   products: Product[];
 };
 
-const ListContent = (props: Props) => {
+const List = (props: Props) => {
   const { products } = props;
   return (
-    <StyledListContent>
+    <StyledList>
       {products.map((product) => (
         <Card product={product} />
       ))}
-    </StyledListContent>
+    </StyledList>
   );
 };
 
-ListContent.defaultProps = {
+List.defaultProps = {
   products: [],
 };
 
-export default ListContent;
+export default List;

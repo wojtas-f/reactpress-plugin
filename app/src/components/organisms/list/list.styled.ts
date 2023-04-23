@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ListContent = styled.div`
+export const List = styled.div`
   width: 100%;
   padding: 16px;
   display: flex;
