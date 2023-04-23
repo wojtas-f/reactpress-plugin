@@ -26,6 +26,17 @@ class ProductAjaxHook
     }
 
     /**  
+     * 
+     */
+    public function getCategories()
+    {
+        return get_terms([
+            'taxonomy' => 'vlp_product_tax',
+            'hide_empty' => true
+        ]);
+    }
+
+    /**  
      * Handle ajax call
      */
     public function handleAjax()
@@ -36,7 +47,11 @@ class ProductAjaxHook
         ];
         $products = get_posts($args);
 
-        $res = [];
+        $res = [
+            'products' => [],
+            'tags' => $this->getCategories()
+        ];
+
         foreach ($products as $product) {
             $productMeta = get_post_meta($product->ID);
             $productObject = [];
@@ -46,8 +61,8 @@ class ProductAjaxHook
             $taxonomies = get_post_taxonomies($product->ID);
             $productObject['tags'] = wp_get_post_terms($product->ID, $taxonomies,  array("fields" => "names"));
 
-            $productObject['META'] = $productMeta;
-            $res[] = $productObject;
+            // $productObject['META'] = $productMeta;
+            $res['products'][] = $productObject;
         }
 
         wp_send_json_success($res);
