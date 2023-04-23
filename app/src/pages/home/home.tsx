@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../../components/templates/sidebar/sidebar";
-import List from "../../components/templates/list/list";
+import Filters from "../../components/organisms/filters/filters";
+import List from "../../components/organisms/list/list";
 
 import { Home as StyledHome } from "./home.styled";
 import api from "../../services/config";
+import filter from "../../filters/filters";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [filters, setFilters] = useState([]);
 
   const getData = async () => {
     const res = await api.getProducts();
-    console.log("res", res);
-    if (res) setProducts(res);
-    else setProducts([]);
+    console.log("res:", res.tags);
+    if (res.products) setProducts(res.products);
+    if (res.tags) {
+      console.log("set tags");
+      setTags(res.tags);
+      console.log(tags);
+    }
   };
 
   useEffect(() => {
@@ -21,8 +28,8 @@ const Home = () => {
 
   return (
     <StyledHome>
-      <List products={products} />
-      <Sidebar />
+      <List products={filter(filters, products)} />
+      <Filters tags={tags} />
     </StyledHome>
   );
 };

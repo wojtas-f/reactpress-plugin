@@ -3,7 +3,7 @@ import { Card as StyledCard } from "./card.styled";
 
 import Product from "../../../types/Product";
 
-import CardTitle from "../../atoms/cardTitle/cardTitle";
+import Title, { enSizes } from "../../atoms/title/title";
 import Description from "../../atoms/description/description";
 import Image from "../../atoms/image/image";
 import Tags from "../tags/tags";
@@ -16,7 +16,7 @@ const Card = (props: Props) => {
   const { product } = props;
   return (
     <StyledCard>
-      <CardTitle>{product.title}</CardTitle>
+      <Title size={enSizes.Medium}>{product.title}</Title>
       <Tags tags={product.tags} />
       {product.thumbnail && <Image src={product.thumbnail} />}
       <Description>{product.title}</Description>

@@ -5,11 +5,18 @@ type Props = {
   value: any;
   placeholder: string;
   name: string;
+  handleChange: (phrase: string) => void;
 };
 
 const TextInput = (props: Props) => {
-  const { value } = props;
-  return <StyledTextInput type="text" value={value} />;
+  const { value, handleChange } = props;
+  return (
+    <StyledTextInput
+      type="text"
+      value={value}
+      onChange={(e) => handleChange(e.target.value)}
+    />
+  );
 };
 
 TextInput.defaultProps = {

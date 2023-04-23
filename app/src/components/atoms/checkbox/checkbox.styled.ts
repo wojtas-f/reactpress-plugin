@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const Search = styled.div`
+export const Checkbox = styled.input`
   width: 100%;
 `;
