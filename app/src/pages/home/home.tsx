@@ -13,10 +13,13 @@ const Home = () => {
 
   const getData = async () => {
     const res = await api.getProducts();
-
+    console.log("res:", res.tags);
     if (res.products) setProducts(res.products);
-    if (res.tags) setTags(res.tags);
-    console.log(tags);
+    if (res.tags) {
+      console.log("set tags");
+      setTags(res.tags);
+      console.log(tags);
+    }
   };
 
   useEffect(() => {
@@ -26,7 +29,7 @@ const Home = () => {
   return (
     <StyledHome>
       <List products={filter(filters, products)} />
-      <Filters />
+      <Filters tags={tags} />
     </StyledHome>
   );
 };
